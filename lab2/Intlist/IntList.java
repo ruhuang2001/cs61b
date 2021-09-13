@@ -106,7 +106,7 @@ public class IntList {
         IntList ptr_ans = ans;
 
         /** Traverse A and use its head node for renewing ans.rest  */
-        while (ptrA != null) {
+        while (ptrA.rest != null) {
             ptr_ans = new IntList(ptrA.first, null);
             ptr_ans = ptr_ans.rest;
             ptrA = ptrA.rest;
