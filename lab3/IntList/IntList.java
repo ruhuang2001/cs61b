@@ -34,14 +34,6 @@ public class IntList {
     }
 
     /**
-     * Returns the reverse of the given IntList.
-     * This method is destructive. If given null
-     * as an input, returns null.
-     */
-    public static IntList reverse(IntList A) {
-        return null;
-    }
-    /**
      * Returns a list equal to L with all elements squared. Destructive.
      */
     public static void dSquareList(IntList L) {
@@ -124,6 +116,30 @@ public class IntList {
         return ans.rest;
     }
 
+    /**
+     * Returns the reverse of the given IntList.
+     * This method is destructive. If given null
+     * as an input, returns null.
+     */
+    public static IntList reverse(IntList A) {
+        if(A == null) {
+            return null;
+        }
+
+        IntList front = A;    //the origin front node
+        IntList back = A.rest; //the origin back node
+
+        front.rest = null;    //First node become last node
+
+        while(back != null) {
+            IntList q = back.rest;
+            back.rest = front;
+            front = back;    //move ptr to the latter node
+            back = q;
+        }
+
+        return front;
+    }
 
 
 
