@@ -22,7 +22,7 @@ public class LinkedListDeque<T> {
 
 
     public LinkedListDeque() {
-        node = new Node((T) new Object(), null, null);
+        node = new Node((T) new Object[], null, null);
         node.prev = node;
         node.next = node;
         size = 0;

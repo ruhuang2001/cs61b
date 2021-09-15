@@ -8,7 +8,7 @@ A:
 
 Q: What's something you felt proud of in your code, if anything?
 
-A:
+A: 
 
 Q: What's something that was particularly inelegant in your code, if anything?
 
@@ -16,7 +16,7 @@ A:
 
 Q: What did you learn by talking to your partner about writing ArrayDeque?
 
-A:
+A: 
 
 Q: What do you wish you would have known before writing ArrayDeque, if anything?
 
