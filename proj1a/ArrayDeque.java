@@ -1,11 +1,11 @@
-public class ArrayDeQue<T> {
+public class ArrayDeque<T> {
     private T[] deque;
     private int capacity = 8;
     private int left;
     private int right;
 
-    public ArrayDeQue() {
-        deque = (T) new Object[capacity];
+    public ArrayDeque() {
+        deque = (T[]) new Object[capacity];
         left = right = 0;
     }
 
@@ -78,7 +78,7 @@ public class ArrayDeQue<T> {
         left = (left + 1) % capacity;
 
         /**short length */
-        if (isLowUsageRate()) {
+        if (isLowRate()) {
             resize((int) (capacity * 0.5));
         }
         return item;
@@ -92,7 +92,7 @@ public class ArrayDeQue<T> {
         T item = deque[right];
         right = (right - 1 + capacity) % capacity;
         /**short length */  
-        if (isLowUsageRate()) {
+        if (isLowRate()) {
             resize((int) (capacity * 0.5));
         }
         return item;
