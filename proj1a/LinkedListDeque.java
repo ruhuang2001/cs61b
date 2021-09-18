@@ -10,7 +10,7 @@ public class LinkedListDeque<T> {
         private Node prev;
         private Node next;
 
-        public Node(T item, LinkedListDeque<T>.Node prev, LinkedListDeque<T>.Node next) {
+        public Node(T item, Node prev, Node next) {
             this.item = item;
             this.prev = prev;
             this.next = next;
@@ -22,7 +22,7 @@ public class LinkedListDeque<T> {
 
 
     public LinkedListDeque() {
-        node = new Node((T) new Object(), null, null);
+        node = new Node(null, null, null);
         node.prev = node;
         node.next = node;
         size = 0;
@@ -30,8 +30,8 @@ public class LinkedListDeque<T> {
 
     public void addFirst(T item) {
         Node newNode = new Node(item, node, node.next);
-        newNode.next = node;
-        node.prev = newNode;
+        newNode.next.prev = newNode;
+        node.next = newNode;
         size += 1;
     }
 
@@ -40,10 +40,10 @@ public class LinkedListDeque<T> {
         node.prev.next = newNode;
         node.prev = newNode;
         size += 1;
-}
+    }
 
     public boolean isEmpty() {
-        return size == 0;
+        return node.next == node;
     }
 
     public int size() {
@@ -64,8 +64,8 @@ public class LinkedListDeque<T> {
         }
         
         T first = node.next.item;
+        node.next.next.prev = node;
         node.next = node.next.next;
-        node.next.prev = node;
         size -= 1;
 
         return first;
@@ -77,15 +77,15 @@ public class LinkedListDeque<T> {
         }
         
         T last = node.prev.item;
+        node.prev.prev.next = node;
         node.prev = node.prev.prev;
-        node.prev.next = node;
         size -= 1;
 
         return last;
     }
 
     public T get(int index) {
-        if (index > size) {
+        if (index > size - 1) {
             return null;
         }
 
@@ -99,17 +99,17 @@ public class LinkedListDeque<T> {
     }
 
     public T getRecursive(int index) {
-        if (size < index) {
+        if (index > size - 1) {
             return null;
         }
 
         return getRecursive(node.next, index);
     }
 
-    private T getRecursive(LinkedListDeque<T>.Node node, int i) {
+    private T getRecursive(Node indexnode, int i) {
         if (i == 0) {
-            return node.item;
+            return indexnode.item;
         }
-        return getRecursive(node.next, i - 1);
+        return getRecursive(indexnode.next, i - 1);
     }
 }

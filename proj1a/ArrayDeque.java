@@ -18,7 +18,7 @@ public class ArrayDeque<T> {
     }
 
     private boolean isLowRate() {
-        return capacity >= 16 && size() / (double) capacity < 0.25;
+        return capacity >= 16 && size() < capacity / 4;
     }
 
     private void resize(int newSize) {
