@@ -13,14 +13,14 @@ public class ArrayDeque<T> {
         return left == right;
     }
 
-    public boolean isFull(){
+    public boolean isFull() {
         return size() == capacity - 1;
     }
 
     private boolean isLowRate() {
         return capacity >= 16 && size() / (double) capacity < 0.25;
     }
-    
+
     public void resize(int newSize) {
         T[] newArray = (T[]) new Object[newSize];
 
@@ -44,6 +44,7 @@ public class ArrayDeque<T> {
         capacity = newSize;
 
     }
+
     public void addFirst(T item) {
         if (isFull()) {
             resize((int) (capacity * 1.5));
@@ -57,7 +58,7 @@ public class ArrayDeque<T> {
         if (isFull()) {
             resize((int) (capacity * 1.5));
         }
-        
+
         deque[right] = item;
         right = (right + 1) % capacity;
     }
@@ -91,7 +92,7 @@ public class ArrayDeque<T> {
 
         T item = deque[right];
         right = (right - 1 + capacity) % capacity;
-        /**short length */  
+        /**short length */
         if (isLowRate()) {
             resize((int) (capacity * 0.5));
         }
@@ -113,6 +114,7 @@ public class ArrayDeque<T> {
         }
         return null;
     }
+
     public void printDeque() {
         if (left < right) {
             for (int i = left; i < right; i++) {
@@ -126,5 +128,6 @@ public class ArrayDeque<T> {
             for (int i = 0; i < right; i++) {
                 System.out.print(deque[i] + " ");
             }
-    }    
+        }
+    }
 }

@@ -22,7 +22,7 @@ public class LinkedListDeque<T> {
 
 
     public LinkedListDeque() {
-        node = new Node((T) new Object[], null, null);
+        node = new Node((T) new Object(), null, null);
         node.prev = node;
         node.next = node;
         size = 0;
@@ -36,7 +36,7 @@ public class LinkedListDeque<T> {
     }
 
     public void addLast(T item) {
-        NOde newNode = new Node(item, node.prev, node)
+        Node newNode = new Node(item, node.prev, node);
         node.prev.next = newNode;
         node.prev = newNode;
         size += 1;
@@ -81,7 +81,7 @@ public class LinkedListDeque<T> {
         node.prev.next = node;
         size -= 1;
 
-        return first;
+        return last;
     }
 
     public T get(int index) {
@@ -103,7 +103,7 @@ public class LinkedListDeque<T> {
             return null;
         }
 
-        return getRecursive(sentinel.next, index);
+        return getRecursive(node.next, index);
     }
 
     private T getRecursive(LinkedListDeque<T>.Node node, int i) {
