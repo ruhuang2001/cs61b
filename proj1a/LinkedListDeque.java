@@ -5,7 +5,7 @@
  * its back).
  */
 public class LinkedListDeque<T> {
-    public class Node {
+    private class Node {
         private T item;
         private Node prev;
         private Node next;
@@ -107,6 +107,9 @@ public class LinkedListDeque<T> {
     }
 
     private T getRecursive(LinkedListDeque<T>.Node node, int i) {
-        return (i == 0) ? node.item : getRecursive(node.next, i - 1);
+        if (i == 0) {
+            return node.item;
+        }
+        return getRecursive(node.next, i - 1);
     }
 }

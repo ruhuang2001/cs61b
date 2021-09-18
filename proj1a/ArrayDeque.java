@@ -13,7 +13,7 @@ public class ArrayDeque<T> {
         return left == right;
     }
 
-    public boolean isFull() {
+    private boolean isFull() {
         return size() == capacity - 1;
     }
 
@@ -21,7 +21,7 @@ public class ArrayDeque<T> {
         return capacity >= 16 && size() / (double) capacity < 0.25;
     }
 
-    public void resize(int newSize) {
+    private void resize(int newSize) {
         T[] newArray = (T[]) new Object[newSize];
 
         int size = size();
@@ -89,9 +89,10 @@ public class ArrayDeque<T> {
         if (isEmpty()) {
             return null;
         }
-
-        T item = deque[right];
+        
         right = (right - 1 + capacity) % capacity;
+        T item = deque[right];
+       
         /**short length */
         if (isLowRate()) {
             resize((int) (capacity * 0.5));
