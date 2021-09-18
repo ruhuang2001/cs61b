@@ -64,9 +64,6 @@ public class ArrayDeque<T> {
     }
 
     public int size() {
-        /** the original formula is 
-         *  ( capacity - (right -left) ) % capacity
-         */
         return (right - left + capacity) % capacity;
     }
 
