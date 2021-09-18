@@ -67,7 +67,7 @@ public class ArrayDeque<T> {
         /** the original formula is 
          *  ( capacity - (right -left) ) % capacity
          */
-        return (left - right + capacity) % capacity;
+        return (right - left + capacity) % capacity;
     }
 
     public T removeFirst() {
