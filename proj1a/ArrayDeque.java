@@ -1,8 +1,8 @@
 public class ArrayDeQue<T> {
     private T[] deque;
     private int capacity = 8;
-    private left;
-    private right;
+    private int left;
+    private int right;
 
     public ArrayDeQue() {
         deque = (T) new Object[capacity];

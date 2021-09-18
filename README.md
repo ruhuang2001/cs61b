@@ -10,7 +10,7 @@ The course website : https://sp18.datastructur.es/
 
 ## Projects
 [Proj0](https://github.com/ruhuang2001/cs61b/tree/master/proj0)
-[Proj1a](https://github.com/ruhuang2001/cs61b/tree/master/proj1a)(TODO: ArrayDeque.java)
+[Proj1a](https://github.com/ruhuang2001/cs61b/tree/master/proj1a)
 
 ## Homeworks
 
