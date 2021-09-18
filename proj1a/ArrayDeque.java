@@ -60,7 +60,7 @@ public class ArrayDeque<T> {
         }
 
         deque[right] = item;
-        right = (right + 1) % capacity;
+        right = (right + 1 + capacity) % capacity;
     }
 
     public int size() {
@@ -89,7 +89,7 @@ public class ArrayDeque<T> {
         if (isEmpty()) {
             return null;
         }
-        
+
         right = (right - 1 + capacity) % capacity;
         T item = deque[right];
        

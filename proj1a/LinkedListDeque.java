@@ -43,7 +43,7 @@ public class LinkedListDeque<T> {
 }
 
     public boolean isEmpty() {
-        return size() == 0;
+        return size == 0;
     }
 
     public int size() {
@@ -85,7 +85,7 @@ public class LinkedListDeque<T> {
     }
 
     public T get(int index) {
-        if (index >= size) {
+        if (index > size) {
             return null;
         }
 
