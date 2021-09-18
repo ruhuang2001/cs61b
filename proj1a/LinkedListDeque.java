@@ -6,6 +6,7 @@
  */
 public class LinkedListDeque<T> {
     private class Node {
+
         private T item;
         private Node prev;
         private Node next;
