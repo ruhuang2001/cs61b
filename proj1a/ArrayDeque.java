@@ -1,14 +1,15 @@
-public class ArrayDeque<T> {
-    private T[] deque;
+public class ArrayDeque<Item> implements Deque<Item> {
+    private Item[] deque;
     private int capacity = 8;
     private int left;
     private int right;
 
     public ArrayDeque() {
-        deque = (T[]) new Object[capacity];
+        deque = (Item[]) new Object[capacity];
         left = right = 0;
     }
 
+    @Override
     public boolean isEmpty() {
         return left == right;
     }
@@ -22,7 +23,7 @@ public class ArrayDeque<T> {
     }
 
     private void resize(int newSize) {
-        T[] newArray = (T[]) new Object[newSize];
+        Item[] newArray = (Item[]) new Object[newSize];
 
         int size = size();
         if (left < right) {
@@ -45,7 +46,8 @@ public class ArrayDeque<T> {
 
     }
 
-    public void addFirst(T item) {
+    @Override
+    public void addFirst(Item item) {
         if (isFull()) {
             resize((int) (capacity * 1.5));
         }
@@ -54,7 +56,8 @@ public class ArrayDeque<T> {
         deque[left] = item;
     }
 
-    public void addLast(T item) {
+    @Override
+    public void addLast(Item item) {
         if (isFull()) {
             resize((int) (capacity * 1.5));
         }
@@ -63,16 +66,18 @@ public class ArrayDeque<T> {
         right = (right + 1 + capacity) % capacity;
     }
 
+    @Override
     public int size() {
         return (right - left + capacity) % capacity;
     }
 
-    public T removeFirst() {
+    @Override
+    public Item removeFirst() {
         if (isEmpty()) {
             return null;
         }
 
-        T item = deque[left];
+        Item item = deque[left];
         left = (left + 1) % capacity;
 
         /**short length */
@@ -82,13 +87,14 @@ public class ArrayDeque<T> {
         return item;
     }
 
-    public T removeLast() {
+    @Override
+    public Item removeLast() {
         if (isEmpty()) {
             return null;
         }
 
         right = (right - 1 + capacity) % capacity;
-        T item = deque[right];
+        Item item = deque[right];
        
         /**short length */
         if (isLowRate()) {
@@ -97,7 +103,8 @@ public class ArrayDeque<T> {
         return item;
     }
 
-    public T get(int index) {
+    @Override
+    public Item get(int index) {
         if (index < 0 || index >= size() || isEmpty()) {
             return null;
         }
@@ -113,6 +120,7 @@ public class ArrayDeque<T> {
         return null;
     }
 
+    @Override
     public void printDeque() {
         if (left < right) {
             for (int i = left; i < right; i++) {

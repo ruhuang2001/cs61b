@@ -4,14 +4,13 @@
  * sizes that can be expanded or contracted on both ends (either its front or
  * its back).
  */
-public class LinkedListDeque<T> {
+public class LinkedListDeque<Item> implements Deque<Item> {
     private class Node {
-
-        private T item;
+        private Item item;
         private Node prev;
         private Node next;
 
-        public Node(T item, Node prev, Node next) {
+        public Node(Item item, Node prev, Node next) {
             this.item = item;
             this.prev = prev;
             this.next = next;
@@ -29,28 +28,33 @@ public class LinkedListDeque<T> {
         size = 0;
     }
 
-    public void addFirst(T item) {
+    @Override
+    public void addFirst(Item item) {
         Node newNode = new Node(item, node, node.next);
         newNode.next.prev = newNode;
         node.next = newNode;
         size += 1;
     }
 
-    public void addLast(T item) {
+    @Override
+    public void addLast(Item item) {
         Node newNode = new Node(item, node.prev, node);
         node.prev.next = newNode;
         node.prev = newNode;
         size += 1;
     }
 
+    @Override
     public boolean isEmpty() {
         return node.next == node;
     }
 
+    @Override
     public int size() {
         return size;
     }
 
+    @Override
     public void printDeque() {
         Node newNode = node.next;
         while (newNode != node) {
@@ -59,12 +63,13 @@ public class LinkedListDeque<T> {
         }
     }
 
-    public T removeFirst() {
+    @Override
+    public Item removeFirst() {
         if (isEmpty()) { 
             return null;
         }
         
-        T first = node.next.item;
+        Item first = node.next.item;
         node.next.next.prev = node;
         node.next = node.next.next;
         size -= 1;
@@ -72,12 +77,13 @@ public class LinkedListDeque<T> {
         return first;
     }
 
-    public T removeLast() {
+    @Override
+    public Item removeLast() {
         if (isEmpty()) { 
             return null;
         }
         
-        T last = node.prev.item;
+        Item last = node.prev.item;
         node.prev.prev.next = node;
         node.prev = node.prev.prev;
         size -= 1;
@@ -85,7 +91,8 @@ public class LinkedListDeque<T> {
         return last;
     }
 
-    public T get(int index) {
+    @Override
+    public Item get(int index) {
         if (index > size - 1) {
             return null;
         }
@@ -99,7 +106,7 @@ public class LinkedListDeque<T> {
         return res.item;
     }
 
-    public T getRecursive(int index) {
+    public Item getRecursive(int index) {
         if (index > size - 1) {
             return null;
         }
@@ -107,7 +114,7 @@ public class LinkedListDeque<T> {
         return getRecursive(node.next, index);
     }
 
-    private T getRecursive(Node indexnode, int i) {
+    private Item getRecursive(Node indexnode, int i) {
         if (i == 0) {
             return indexnode.item;
         }
