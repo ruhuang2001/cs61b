@@ -4,7 +4,7 @@
  * sizes that can be expanded or contracted on both ends (either its front or
  * its back).
  */
-public class LinkedListDeque<Item> {
+public class LinkedListDeque<Item> implements Deque<Item> {
     private class Node {
         private Item item;
         private Node prev;
@@ -28,6 +28,7 @@ public class LinkedListDeque<Item> {
         size = 0;
     }
 
+    @Override
     public void addFirst(Item item) {
         Node newNode = new Node(item, node, node.next);
         newNode.next.prev = newNode;
@@ -35,6 +36,7 @@ public class LinkedListDeque<Item> {
         size += 1;
     }
 
+    @Override
     public void addLast(Item item) {
         Node newNode = new Node(item, node.prev, node);
         node.prev.next = newNode;
@@ -42,14 +44,17 @@ public class LinkedListDeque<Item> {
         size += 1;
     }
 
+    @Override
     public boolean isEmpty() {
         return node.next == node;
     }
 
+    @Override
     public int size() {
         return size;
     }
 
+    @Override
     public void printDeque() {
         Node newNode = node.next;
         while (newNode != node) {
@@ -58,6 +63,7 @@ public class LinkedListDeque<Item> {
         }
     }
 
+    @Override
     public Item removeFirst() {
         if (isEmpty()) { 
             return null;
@@ -71,6 +77,7 @@ public class LinkedListDeque<Item> {
         return first;
     }
 
+    @Override
     public Item removeLast() {
         if (isEmpty()) { 
             return null;
@@ -84,6 +91,7 @@ public class LinkedListDeque<Item> {
         return last;
     }
 
+    @Override
     public Item get(int index) {
         if (index > size - 1) {
             return null;

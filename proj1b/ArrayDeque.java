@@ -1,4 +1,4 @@
-public class ArrayDeque<Item> {
+public class ArrayDeque<Item> implements Deque<Item> {
     private Item[] deque;
     private int capacity = 8;
     private int left;
@@ -9,6 +9,7 @@ public class ArrayDeque<Item> {
         left = right = 0;
     }
 
+    @Override
     public boolean isEmpty() {
         return left == right;
     }
@@ -45,6 +46,7 @@ public class ArrayDeque<Item> {
 
     }
 
+    @Override
     public void addFirst(Item item) {
         if (isFull()) {
             resize((int) (capacity * 1.5));
@@ -54,6 +56,7 @@ public class ArrayDeque<Item> {
         deque[left] = item;
     }
 
+    @Override
     public void addLast(Item item) {
         if (isFull()) {
             resize((int) (capacity * 1.5));
@@ -63,10 +66,12 @@ public class ArrayDeque<Item> {
         right = (right + 1 + capacity) % capacity;
     }
 
+    @Override
     public int size() {
         return (right - left + capacity) % capacity;
     }
 
+    @Override
     public Item removeFirst() {
         if (isEmpty()) {
             return null;
@@ -82,6 +87,7 @@ public class ArrayDeque<Item> {
         return item;
     }
 
+    @Override
     public Item removeLast() {
         if (isEmpty()) {
             return null;
@@ -97,6 +103,7 @@ public class ArrayDeque<Item> {
         return item;
     }
 
+    @Override
     public Item get(int index) {
         if (index < 0 || index >= size() || isEmpty()) {
             return null;
@@ -113,6 +120,7 @@ public class ArrayDeque<Item> {
         return null;
     }
 
+    @Override
     public void printDeque() {
         if (left < right) {
             for (int i = left; i < right; i++) {
