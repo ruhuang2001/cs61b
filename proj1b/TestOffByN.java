@@ -3,7 +3,7 @@ import static org.junit.Assert.*;
 
 public class TestOffByN {
     @Test
-    public void TestOffBy4() {
+    public void testOffBy4() {
         OffByN offby4 = new OffByN(4);
         assertTrue(offby4.equalChars('a', 'e'));
         assertTrue(offby4.equalChars('e', 'a'));
@@ -12,18 +12,18 @@ public class TestOffByN {
     }
 
     @Test 
-    public void TestOffBy1() {
+    public void testOffBy1() {
         OffByN offby1 = new OffByN(1);
-        assertTrue(offby4.equalChars('a', 'b'));
-        assertTrue(offby4.equalChars('&', '%'));
-        assertFalse(offby4.equalChars('b', 'g'));
-        assertFalse(offby4.equalChars('g', 'm'));
+        assertTrue(offby1.equalChars('a', 'b'));
+        assertTrue(offby1.equalChars('&', '%'));
+        assertFalse(offby1.equalChars('b', 'g'));
+        assertFalse(offby1.equalChars('g', 'm'));
     }
 
     @Test 
-    public void TestOffBy0() {
+    public void testOffBy0() {
         OffByN offby0 = new OffByN(0);
-        assertTrue(offby4.equalChars('a', 'a'));
-        assertFalse(offby4.equalChars('g', 'm'));
+        assertTrue(offby0.equalChars('a', 'a'));
+        assertFalse(offby0.equalChars('g', 'm'));
     }
 }

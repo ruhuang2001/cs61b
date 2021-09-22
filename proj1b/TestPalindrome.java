@@ -17,7 +17,13 @@ public class TestPalindrome {
     }
 
     @Test
-    public void TestOffByOne {
+    public void testIsPalindrome() {
+        assertTrue(palindrome.isPalindrome(""));
+        assertTrue(palindrome.isPalindrome("a"));
+        assertFalse(palindrome.isPalindrome("agds"));
+    }
+    @Test
+    public void testOffByOne() {
         CharacterComparator cc = new OffByN(4);
         assertTrue(palindrome.isPalindrome("", cc));
         assertTrue(palindrome.isPalindrome("s", cc));
