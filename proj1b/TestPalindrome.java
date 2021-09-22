@@ -20,16 +20,21 @@ public class TestPalindrome {
     public void testIsPalindrome() {
         assertTrue(palindrome.isPalindrome(""));
         assertTrue(palindrome.isPalindrome("a"));
+        assertTrue(palindrome.isPalindrome("goog"));
         assertFalse(palindrome.isPalindrome("agds"));
+        assertFalse(palindrome.isPalindrome("horsA"));
+        assertFalse
     }
+
     @Test
     public void testOffByOne() {
-        CharacterComparator cc = new OffByN(4);
+        CharacterComparator cc = new OffByOne();
         assertTrue(palindrome.isPalindrome("", cc));
         assertTrue(palindrome.isPalindrome("s", cc));
         assertFalse(palindrome.isPalindrome("aab", cc));
         assertFalse(palindrome.isPalindrome("aadv", cc));
     }
+
     @Test
     public void testOffBy4() {
         CharacterComparator cc = new OffByN(4);
