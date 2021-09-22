@@ -23,24 +23,25 @@ public class TestPalindrome {
         assertTrue(palindrome.isPalindrome("goog"));
         assertFalse(palindrome.isPalindrome("agds"));
         assertFalse(palindrome.isPalindrome("horsA"));
-        assertFalse
     }
 
     @Test
     public void testOffByOne() {
         CharacterComparator cc = new OffByOne();
         assertTrue(palindrome.isPalindrome("", cc));
-        assertTrue(palindrome.isPalindrome("s", cc));
-        assertFalse(palindrome.isPalindrome("aab", cc));
-        assertFalse(palindrome.isPalindrome("aadv", cc));
+        assertTrue(palindrome.isPalindrome("a", cc));
+        assertTrue(palindrome.isPalindrome("flake", cc));
+        assertFalse(palindrome.isPalindrome("aabaa", cc));
+        assertFalse(palindrome.isPalindrome("noon", cc));
     }
 
     @Test
-    public void testOffBy4() {
-        CharacterComparator cc = new OffByN(4);
+    public void testOffBy5() {
+        CharacterComparator cc = new OffByN(5);
         assertTrue(palindrome.isPalindrome("", cc));
-        assertTrue(palindrome.isPalindrome("s", cc));
-        assertFalse(palindrome.isPalindrome("aab", cc));
-        assertFalse(palindrome.isPalindrome("aadv", cc));
+        assertTrue(palindrome.isPalindrome("a", cc));
+        assertTrue(palindrome.isPalindrome("bing", cc));
+        assertFalse(palindrome.isPalindrome("aabaa", cc));
+        assertFalse(palindrome.isPalindrome("noon", cc));
     }
 }
