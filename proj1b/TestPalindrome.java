@@ -8,17 +8,28 @@ public class TestPalindrome {
 
     @Test
     public void testWordToDeque() {
-        Deque d = palindrome.wordToDeque("persiflage");
+        Deque d = palindrome.wordToDeque("ghost");
         String actual = "";
-        for (int i = 0; i < "persiflage".length(); i++) {
+        for (int i = 0; i < "ghost".length(); i++) {
             actual += d.removeFirst();
         }
-        assertEquals("persiflage", actual);
+        assertEquals("ghost", actual);
     }
 
     @Test
-    public void testIsPalindrome() {
-        assertFalse(palindrome.isPalindrome("cat"));
-        assertTrue(palindrome.isPalindrome(""));
+    public void TestOffByOne {
+        CharacterComparator cc = new OffByN(4);
+        assertTrue(palindrome.isPalindrome("", cc));
+        assertTrue(palindrome.isPalindrome("s", cc));
+        assertFalse(palindrome.isPalindrome("aab", cc));
+        assertFalse(palindrome.isPalindrome("aadv", cc));
+    }
+    @Test
+    public void testOffBy4() {
+        CharacterComparator cc = new OffByN(4);
+        assertTrue(palindrome.isPalindrome("", cc));
+        assertTrue(palindrome.isPalindrome("s", cc));
+        assertFalse(palindrome.isPalindrome("aab", cc));
+        assertFalse(palindrome.isPalindrome("aadv", cc));
     }
 }
