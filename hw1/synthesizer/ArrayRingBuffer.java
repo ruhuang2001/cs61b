@@ -1,10 +1,10 @@
 // TODO: Make sure to make this class a part of the synthesizer package
-package <synthesizer>;
+package synthesizer;
 import java.util.Iterator;
 
 //TODO: Make sure to make this class and all of its methods public
 //TODO: Make sure to make this class extend AbstractBoundedQueue<t>
-public class ArrayRingBuffer<T> extend AbstractBoundedQueue<T>  {
+public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T>  {
     /* Index for the next dequeue or peek. */
     private int first;            // index for the next dequeue or peek
     /* Index for the next enqueue. */
@@ -25,6 +25,7 @@ public class ArrayRingBuffer<T> extend AbstractBoundedQueue<T>  {
         last = 0;
         fillCount = 0;
         this.capacity = capacity;
+        rb = (T[]) new Object[capacity];
     }
 
     /**
@@ -34,8 +35,17 @@ public class ArrayRingBuffer<T> extend AbstractBoundedQueue<T>  {
      */
     public void enqueue(T x) {
         // TODO: Enqueue the item. Don't forget to increase fillCount and update last.
+        if (isFull()) {
+            throw new RuntimeException("Ring buffer overflow");
+        }
+        rb[last++] = x;
 
+        /*similar to last % capacity*/
+        if (last == capacity) {
+            last = 0;
+        }
 
+        fillCount ++;
     }
 
     /**
@@ -44,7 +54,19 @@ public class ArrayRingBuffer<T> extend AbstractBoundedQueue<T>  {
      * covered Monday.
      */
     public T dequeue() {
-        // TODO: Dequeue the first item. Don't forget to decrease fillCount and update 
+        // TODO: Dequeue the first item. Don't forget to decrease fillCount and update
+        if (isEmpty()) {
+            throw new RuntimeException("Ring buffer underflow");
+        }
+
+        T res = rb[first++];
+
+        if (first == capacity) {
+            first = 0;
+        }
+
+        fillCount --;
+        return res;
     }
 
     /**
@@ -52,6 +74,10 @@ public class ArrayRingBuffer<T> extend AbstractBoundedQueue<T>  {
      */
     public T peek() {
         // TODO: Return the first item. None of your instance variables should change.
+        if (isEmpty()) {
+            throw new RuntimeException("Ring buffer underflow");
+        }
+        return rb[first];
     }
 
     // TODO: When you get to part 5, implement the needed code to support iteration.
