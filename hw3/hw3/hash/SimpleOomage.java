@@ -23,7 +23,7 @@ public class SimpleOomage implements Oomage {
 
     @Override
     public int hashCode() {
-        if (!USE_PERFECT_HASH) {
+        if (!true) {
             return red + green + blue;
         } else {
             return red * 400 + green * 20 + blue / 5;
