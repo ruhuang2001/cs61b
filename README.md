@@ -1,4 +1,4 @@
-# cs61b (Remaining Tasks : 10)
+# cs61b (Remaining Tasks : 18)
 
 The course website : https://sp18.datastructur.es/ 
 
@@ -28,10 +28,10 @@ Proj3_bearmap_gold
 Proj3_bearmap_1
 Proj3_bearmap_23
 
-## Homeworks (6)
+## Homeworks (5)
 [HW1](https://github.com/ruhuang2001/cs61b/tree/master/hw1)
 HW2
-HW3
+[HW3](https://github.com/ruhuang2001/cs61b/tree/master/hw3/hw3/hash)
 HW4
 HW5
 HW6
