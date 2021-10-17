@@ -39,7 +39,7 @@ public class TestComplexOomage {
     @Test
     public void testWithDeadlyParams() {
         List<Oomage> deadlyList = new ArrayList<>();
-		/* Confused with this test*/
+		/* Confused with this test	*/
 		for (int i = 0; i < 30; i++) {
 			List<Integer> p = new ArrayList<>();
 			for (int j = 0; j < i; j++) {
