@@ -2,14 +2,14 @@
 
 The course website : https://sp18.datastructur.es/ 
 
-## Labs (5)
+## Labs (4)
 [Lab1](https://github.com/ruhuang2001/cs61b/tree/master/lab1)
 [Lab2](https://github.com/ruhuang2001/cs61b/tree/master/lab2)
 [Lab3](https://github.com/ruhuang2001/cs61b/tree/master/lab3)
 [Lab4](https://github.com/ruhuang2001/cs61b/tree/master/lab4)
 [Lab9](https://github.com/ruhuang2001/cs61b/tree/master/lab9)
 [Lab10](https://github.com/ruhuang2001/cs61b/tree/master/lab10)
-Lab11
+[Lab11](https://github.com/ruhuang2001/cs61b/tree/master/lab11/lab11/graphs)
 Lab12
 Lab13
 Lab14
