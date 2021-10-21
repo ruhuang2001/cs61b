@@ -1,8 +1,8 @@
-# cs61b (Remaining Tasks : 18)
+# cs61b (Remaining Tasks : 16)
 
 The course website : https://sp18.datastructur.es/ 
 
-## Labs (4)
+## Labs (3)
 [Lab1](https://github.com/ruhuang2001/cs61b/tree/master/lab1)
 [Lab2](https://github.com/ruhuang2001/cs61b/tree/master/lab2)
 [Lab3](https://github.com/ruhuang2001/cs61b/tree/master/lab3)
@@ -10,7 +10,7 @@ The course website : https://sp18.datastructur.es/
 [Lab9](https://github.com/ruhuang2001/cs61b/tree/master/lab9)
 [Lab10](https://github.com/ruhuang2001/cs61b/tree/master/lab10)
 [Lab11](https://github.com/ruhuang2001/cs61b/tree/master/lab11/lab11/graphs)
-Lab12
+[Lab12]((https://github.com/ruhuang2001/cs61b/tree/master/lab12))
 Lab13
 Lab14
 Lab15
