@@ -32,7 +32,7 @@ public class MazeBreadthFirstPaths extends MazeExplorer {
 		queue.add(s);
 		marked[s] = true;
 
-		while(!queue.isEmpty()) {
+		while (!queue.isEmpty()) {
 			int v = queue.poll();
 			for (int w : maze.adj(v)) {
 				if (!marked[w]) {

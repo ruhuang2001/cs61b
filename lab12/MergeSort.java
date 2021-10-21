@@ -34,8 +34,13 @@ public class MergeSort {
     /** Returns a queue of queues that each contain one item from items. */
     private static <Item extends Comparable> Queue<Queue<Item>>
             makeSingleItemQueues(Queue<Item> items) {
-        // Your code here!
-        return null;
+		Queue<Queue<Item>> ans = new Queue<>();
+		for (Item item : items) {
+			Queue<Item> queue = new Queue<>();
+			queue.enqueue(item);
+			ans.enqueue(queue);
+		}
+        return ans;
     }
 
     /**
@@ -53,14 +58,48 @@ public class MergeSort {
      */
     private static <Item extends Comparable> Queue<Item> mergeSortedQueues(
             Queue<Item> q1, Queue<Item> q2) {
-        // Your code here!
-        return null;
+		Queue<Item> queue = new Queue<>();
+		/* Because getMin will check q1,q2 isEmpty, so I use the or */
+		while (!q1.isEmpty() || !q2.isEmpty()) {
+			queue.enqueue(getMin(q1, q2));
+		}
+        return queue;
     }
 
     /** Returns a Queue that contains the given items sorted from least to greatest. */
     public static <Item extends Comparable> Queue<Item> mergeSort(
             Queue<Item> items) {
-        // Your code here!
-        return items;
+		if (items.size() <= 1) {
+			return items;
+		}
+		int mid = items.size() / 2;
+		Queue<Item> left = new Queue<>();
+		Queue<Item> right = new Queue<>();
+
+		for (Item item : items) {
+			if (mid > 0) {
+				left.enqueue(item);
+			} else {
+				right.enqueue(item);
+			}
+			mid--;
+		}
+		Queue<Item> leftQueue = mergeSort(left);
+		Queue<Item> rightQueue = mergeSort(right);
+		Queue<Item> ans = mergeSortedQueues(leftQueue, rightQueue);
+
+        return ans;
     }
+
+	public static void main(String[] args) {
+		Queue<String> students = new Queue<>();
+		students.enqueue("Alice");
+		students.enqueue("Vanessa");
+		students.enqueue("Ethan");
+		System.out.println("original queue: " + students);
+		Queue<String> students2 = MergeSort.mergeSort(students);
+		System.out.println("sorted queue: " + students2);
+		System.out.println(students.size() == students2.size());
+
+	}
 }
