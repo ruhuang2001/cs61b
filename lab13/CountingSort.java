@@ -52,7 +52,8 @@ public class CountingSort {
             sorted2[place] = item;
             starts[item] += 1;
         }
-
+		/* the 53 line means if I have two same number, I will put it
+		   to the adjacent right index to avoid overlapping*/
         // return the sorted array
         return sorted;
     }
