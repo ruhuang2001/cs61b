@@ -87,7 +87,7 @@ public class QuickSort {
 		System.out.println("original queue: " + origin);
 		Queue<Integer> answer = QuickSort.quickSort(origin);
 		System.out.println("sorted queue: " + answer);
-		System.out.println(origin.size());
+		System.out.println(origin.size() == answer.size());
 
 	}
 }

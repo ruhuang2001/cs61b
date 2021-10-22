@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * Class for doing Radix sort
  *
@@ -16,8 +18,16 @@ public class RadixSort {
      * @return String[] the sorted array
      */
     public static String[] sort(String[] asciis) {
-        // TODO: Implement LSD Sort
-        return null;
+        int max = asciis[0].length();
+		for (int i = 1; i < asciis.length; i++) {
+			max = Math.max(asciis[i].length(), max);
+		}
+
+		String[] ans = Arrays.copyOf(asciis, asciis.length);
+		for (int i = max - 1; i >= 0; i--) {
+			sortHelperLSD(ans, i);
+		}
+        return ans;
     }
 
     /**
@@ -27,8 +37,17 @@ public class RadixSort {
      * @param index The position to sort the Strings on.
      */
     private static void sortHelperLSD(String[] asciis, int index) {
-        // Optional LSD helper method for required LSD radix sort
-        return;
+		for (int i = 0; i < asciis.length - 1; i++) {
+			for (int j = i + 1; j < asciis.length; j++) {
+				String temp;
+				if (asciis[i].charAt(index) > asciis[j].charAt(index)) {
+					temp = asciis[i];
+					asciis[i] = asciis[j];
+					asciis[j] = temp;
+				}
+			}
+		}
+
     }
 
     /**
