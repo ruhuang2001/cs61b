@@ -10,8 +10,8 @@ The course website : https://sp18.datastructur.es/
 [Lab9](https://github.com/ruhuang2001/cs61b/tree/master/lab9)
 [Lab10](https://github.com/ruhuang2001/cs61b/tree/master/lab10)
 [Lab11](https://github.com/ruhuang2001/cs61b/tree/master/lab11/lab11/graphs)
-[Lab12]((https://github.com/ruhuang2001/cs61b/tree/master/lab12))
-Lab13
+[Lab12](https://github.com/ruhuang2001/cs61b/tree/master/lab12)
+Lab13(完成了一部分)
 Lab14
 Lab15
 
