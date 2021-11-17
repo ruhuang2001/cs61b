@@ -20,6 +20,9 @@ public class Plip extends Creature {
     /** blue color. */
     private int b;
 
+
+
+
     /** creates plip with energy equal to E. */
     public Plip(double e) {
         super("plip");
@@ -48,6 +51,7 @@ public class Plip extends Creature {
 
     /** Do nothing with C, Plips are pacifists. */
     public void attack(Creature c) {
+
     }
 
     /** Plips should lose 0.15 units of energy when moving. If you want to
@@ -55,11 +59,13 @@ public class Plip extends Creature {
      *  private static final variable. This is not required for this lab.
      */
     public void move() {
+		energy -= 0.15;
     }
 
 
     /** Plips gain 0.2 energy when staying due to photosynthesis. */
     public void stay() {
+		energy += 0.2;
     }
 
     /** Plips and their offspring each get 50% of the energy, with none
@@ -83,5 +89,10 @@ public class Plip extends Creature {
     public Action chooseAction(Map<Direction, Occupant> neighbors) {
         return new Action(Action.ActionType.STAY);
     }
+
+	public String name() {
+		Occupant occupant = new Plip();
+		return occupant.name();
+	}
 
 }
