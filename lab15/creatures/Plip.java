@@ -45,8 +45,8 @@ public class Plip extends Creature {
      *  that you get this exactly correct.
      */
     public Color color() {
-        g = 63;
-        return color(r, g, b);
+        g = (int) (96 * energy + 63);
+        return color(99, g, 76);
     }
 
     /** Do nothing with C, Plips are pacifists. */
@@ -60,12 +60,18 @@ public class Plip extends Creature {
      */
     public void move() {
 		energy -= 0.15;
+		if (energy < 0) {
+			energy = 0;
+		}
     }
 
 
     /** Plips gain 0.2 energy when staying due to photosynthesis. */
     public void stay() {
 		energy += 0.2;
+		if (energy >= 2) {
+			energy = 2;
+		}
     }
 
     /** Plips and their offspring each get 50% of the energy, with none
