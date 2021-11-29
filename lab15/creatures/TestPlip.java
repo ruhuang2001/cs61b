@@ -36,7 +36,8 @@ public class TestPlip {
 
     @Test
     public void testReplicate() {
-
+		Plip p = new Plip(20);
+		assertNotSame(p.replicate(), p);
     }
 
     @Test

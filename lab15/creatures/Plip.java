@@ -79,7 +79,8 @@ public class Plip extends Creature {
      *  Plip.
      */
     public Plip replicate() {
-        return this;
+		energy = energy / 2;
+        return new Plip(energy);
     }
 
     /** Plips take exactly the following actions based on NEIGHBORS:
@@ -93,7 +94,20 @@ public class Plip extends Creature {
      *  for an example to follow.
      */
     public Action chooseAction(Map<Direction, Occupant> neighbors) {
-        return new Action(Action.ActionType.STAY);
+		List<Direction> empties = getNeighborsOfType(neighbors, "empty");
+		List<Direction> clorus = getNeighborsOfType(neighbors, "clorus");
+
+		if (empties.size() == 0) {
+			return new Action(Action.ActionType.STAY);
+		} else if (energy > 1) {
+			Direction moveDir = HugLifeUtils.randomEntry(empties);
+			return new Action(Action.ActionType.REPLICATE, moveDir);
+		} else if (!clorus.isEmpty() && HugLifeUtils.random() >= 0.5) {
+			Direction moveDir = HugLifeUtils.randomEntry(empties);
+			return new Action(Action.ActionType.MOVE, moveDir);
+		} else {
+			return new Action(Action.ActionType.STAY);
+		}
     }
 
 	public String name() {
