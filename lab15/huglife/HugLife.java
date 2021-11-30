@@ -1,5 +1,6 @@
 package huglife;
 import creatures.*;
+import org.junit.Test;
 
 /** World facing class for HugLife simulator.
  *  @author Josh Hug
@@ -79,6 +80,7 @@ public class HugLife {
     /** A set of precanned hard-coded worlds. This is terrible
      *  style, but hey it's very easy to write this way.
      */
+	@Test
     public void initialize(String worldName) {
         if (worldName.equals("samplesolo")) {
             addCreature(11, 1, new SampleCreature());
@@ -92,12 +94,12 @@ public class HugLife {
 
         else if (worldName.equals("strugggz")) {
             System.out.println("You need to uncomment the strugggz test!");
-            /*addCreature(11, 1, new SampleCreature());
+            addCreature(11, 1, new SampleCreature());
             addCreature(12, 12, new Plip());
             addCreature(3, 3, new Plip());
             addCreature(4, 3, new Plip());
 
-            addCreature(2, 2, new Clorus(1));*/
+            addCreature(2, 2, new Clorus(1));
         } else {
             System.out.println("World name not recognized!");
         }
@@ -119,9 +121,9 @@ public class HugLife {
             int y = in.readInt();
             switch (creature) {
                 //Uncomment this when you're ready to test out your clorus class
-                // case "clorus":
-                //     h.addCreature(x, y, new Clorus(1));
-                //     break;
+                 case "clorus":
+                     h.addCreature(x, y, new Clorus(1));
+                     break;
                 case "plip":
                     h.addCreature(x, y, new Plip());
                     break;

@@ -110,9 +110,9 @@ public class Plip extends Creature {
 		}
     }
 
-	public String name() {
-		Occupant occupant = new Plip();
-		return occupant.name();
-	}
+//	public String name() {
+//		Occupant occupant = new Plip();
+//		return occupant.name();
+//	}
 
 }
