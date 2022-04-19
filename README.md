@@ -1,6 +1,5 @@
-# cs61b (Remaining Tasks : 13)
-
-The course website : https://sp18.datastructur.es/ 
+# cs61b (Remaining Tasks : 13) 
+***I give up this repository due to my procrastination, and open a [New Repository] for CS61B-sp21.***
 
 
 ## Labs 
@@ -37,3 +36,5 @@ HW4
 HW5
 HW6
 HW7
+
+[New Repository]: https://github.com/ruhuang2001/CS61B-sp21
